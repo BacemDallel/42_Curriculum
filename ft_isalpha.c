@@ -5,12 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 13:12:29 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/16 14:27:07 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:27:47 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:29 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
 }

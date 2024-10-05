@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 10:07:15 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/22 10:33:49 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/25 15:31:26 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:33 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*temp;
+	t_list	*ptr;
 
-	if (!lst || !new)
+	if (!new)
 		return ;
-	if (*lst == NULL)
+	if (!*lst)
 	{
 		*lst = new;
+		return ;
 	}
-	else
-	{
-		temp = ft_lstlast(*lst);
-		temp->next = new;
-	}
+	ptr = ft_lstlast(*lst);
+	ptr->next = new;
 }

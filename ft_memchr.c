@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 11:43:34 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/18 13:17:11 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:49:00 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:50 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*arr;
+	unsigned char	*st;
+	size_t			stlen;
 
-	arr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	stlen = ft_strlen((char *)s);
+	c = (unsigned char)c;
+	st = (unsigned char *)s;
+	while (st && n)
 	{
-		if (arr[i] == (unsigned char)c)
-			return ((void *)(arr + i));
-		i++;
+		if (*st == c + 0)
+			return (st);
+		stlen--;
+		st++;
+		n--;
 	}
 	return (NULL);
 }

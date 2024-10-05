@@ -5,12 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 13:49:07 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/17 09:41:56 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:21:29 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:32 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isprint(int c)
 {
-	return (c >= 32 && c <= 126);
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }

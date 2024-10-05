@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 10:33:15 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/22 11:30:13 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/27 12:42:39 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:36 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*new_node;
-	t_list	*new_list;
-
-	new_list = NULL;
-	if (!lst || !f)
-		return (NULL);
+	if (!f)
+		return ;
 	while (lst)
 	{
-		new_node = ft_lstnew(f(lst->content));
-		if (!new_node)
-		{
-			ft_lstclear(&new_list, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_list, new_node);
+		f(lst->content);
 		lst = lst->next;
 	}
-	return (new_list);
 }

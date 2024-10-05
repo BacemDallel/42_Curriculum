@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 13:52:44 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/16 14:00:32 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 15:24:26 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:23:07 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	size_t	n;
 
-	i = 0;
-	while (s[i] != '\0')
+	n = 0;
+	while (s[n] != '\0')
 	{
-		i++;
+		n++;
 	}
-	return (i);
+	return (n);
 }

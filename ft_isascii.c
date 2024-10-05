@@ -5,12 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 13:34:44 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/16 13:48:44 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:28:45 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:30 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isascii(int c)
 {
-	return (c >= 0 && c <= 127);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

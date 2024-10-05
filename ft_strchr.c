@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 10:42:05 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/19 11:09:40 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:57:49 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:23:02 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
+	char	*ch;
 
 	i = 0;
-	while (s[i] != '\0')
+	c = (char)c;
+	ch = (char *)s;
+	while (s[i] && c <= 255)
 	{
-		if (s[i] == (char)c)
-		{
-			return ((char *)&s[i]);
-		}
+		if (*ch == c + 0)
+			return (ch);
+		ch++;
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)&s[i]);
+	if (*ch == c + 0)
+		return (ch);
 	return (NULL);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 11:50:01 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/19 13:47:17 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:59:34 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:23:04 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	if (!s || !f)
 		return ;
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		f(i, &s[i]);
 		i++;

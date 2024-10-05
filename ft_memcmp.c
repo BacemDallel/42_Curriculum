@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 12:01:06 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/17 12:29:22 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:49:59 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:51 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	unsigned char	*ch1;
+	unsigned char	*ch2;
 
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
+	ch1 = (unsigned char *)s1;
+	ch2 = (unsigned char *)s2;
 	i = 0;
-	while (i < n && str1[i] == str2[i])
+	while (n > i)
+	{
+		if (ch1[i] != ch2[i])
+			return (ch1[i] - ch2[i]);
 		i++;
-	if (i == n)
-		return (0);
-	return (str1[i] - str2[i]);
+	}
+	return (0);
 }

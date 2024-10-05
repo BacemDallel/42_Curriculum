@@ -5,53 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 15:17:33 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/17 09:52:14 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:51:40 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:54 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t				i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	char	*d;
+	char	*s;
 
-	i = 0;
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	i = 0;
-	if (d > s)
+	if (src == NULL && dst == NULL)
+		return (NULL);
+	d = (char *)dst;
+	s = (char *)src;
+	if (src > dst)
 	{
-		while (n--)
+		while (len--)
 		{
-			d[i] = s[i];
-			i++;
+			*d = *s;
+			s++;
+			d++;
 		}
 	}
-	else
+	if (src < dst)
 	{
-		while (i < n)
+		while (len--)
 		{
-			d[i] = s[i];
-			i++;
+			d[len] = s[len];
 		}
 	}
-	return (dest);
+	return (dst);
 }
-
-// #include <stdio.h>
-
-// void	*ft_memmove(void *dest, const void *src, size_t n);
-
-// int	main(void)
-// {
-// 	char	buffer[20] = "Hello, World!";
-
-// 	// Test when destination is after the source
-// 	printf("Original buffer: %s\n", buffer);
-// 	ft_memmove(buffer, buffer + 7, 12);
-// 	printf("Modified buffer (dest after src): %s\n", buffer);
-// 	return (0);
-// }

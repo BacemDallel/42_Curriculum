@@ -5,12 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 13:16:33 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/16 13:17:19 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:33:59 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:22:31 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isdigit(int c)
 {
-	return (c >= '0' && c <= '9');
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 13:18:49 by bdallel           #+#    #+#             */
-/*   Updated: 2024/09/22 09:27:16 by bdallel          ###   ########.fr       */
+/*   Created: 2024/04/21 14:23:04 by vseppane          #+#    #+#             */
+/*   Updated: 2024/10/03 10:36:14 by bdallel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0'
+			&& c <= '9'))
+		return (1);
+	else
+		return (0);
 }

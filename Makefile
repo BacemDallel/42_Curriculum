@@ -3,55 +3,90 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Bacem Dallel                                  +#+  +:+       +#+       #
+#    By: bdallel <bdallel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/24                                   ###   ########.fr    #
+#    Created: 2024/04/21 16:13:37 by vseppane          #+#    #+#              #
+#    Updated: 2024/10/03 10:23:51 by bdallel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libft.a
-FLAGS		= -Wall -Wextra -Werror
+NAME =	libft.a
 
-# Mandatory source files
-SRCS		= ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-			  ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-			  ft_strlcpy.c ft_strlcat.c ft_tolower.c ft_toupper.c ft_strchr.c \
-			  ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
-			  ft_atoi.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_strmapi.c \
-			  ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-			  ft_putnbr_fd.c
+CC =	cc
 
-# Bonus source files
-BONUS_SRCS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-			  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-			  ft_lstmap.c
+CFLAGS =	-Wall -Wextra -Werror
 
-# Object files
-OBJS		= $(SRCS:.c=.o)
-BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
+SOURCES =		ft_isalpha.c \
+        ft_isdigit.c  \
+        ft_isalnum.c  \
+        ft_isascii.c  \
+        ft_isprint.c  \
+        ft_strlen.c  \
+        ft_memset.c  \
+        ft_bzero.c   \
+        ft_memcpy.c  \
+        ft_memmove.c  \
+        ft_strlcpy.c  \
+        ft_strlcat.c  \
+        ft_toupper.c  \
+        ft_tolower.c  \
+        ft_strchr.c  \
+        ft_strrchr.c  \
+        ft_strncmp.c  \
+        ft_memchr.c  \
+        ft_strnstr.c  \
+        ft_atoi.c  \
+		ft_strdup.c \
+		ft_calloc.c \
+		ft_memcmp.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_striteri.c \
+		ft_strmapi.c \
+		ft_putnbr_fd.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_itoa.c \
+		ft_strtrim.c \
+		ft_split.c \
+		ft_strlcat.c
 
-# Default rule (builds mandatory part only)
+BONUSSOURCES =		ft_lstnew_bonus.c \
+		ft_lstadd_front_bonus.c \
+		ft_lstsize_bonus.c \
+		ft_lstlast_bonus.c \
+		ft_lstadd_back_bonus.c \
+		ft_lstdelone_bonus.c \
+		ft_lstclear_bonus.c \
+		ft_lstiter_bonus.c \
+		ft_lstmap_bonus.c 
+
+OBJECTS = $(SOURCES:.c=.o)
+
+BONUSOBJECTS = $(BONUSSOURCES:.c=.o)
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $?
+
 all: $(NAME)
 
-# Creating the library
-$(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+$(NAME): $(OBJECTS)
+	$(AR) -rc $@ $?
 
-# Compile object files
-%.o: %.c
-	cc $(FLAGS) -c $< -o $@
+bonus: .bonus
 
-# Rule for compiling bonus files
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+.bonus: $(OBJECTS) $(BONUSOBJECTS)
+	$(AR) -rc $(NAME) $?
+	@touch .bonus
 
-# Clean object files
-clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+clean:		
+	rm -f $(OBJECTS) $(BONUSOBJECTS)
 
-# Full clean (remove object files and library)
-fclean: clean
-	rm -f $(NAME)
+fclean:		clean
+			rm -f $(NAME)
+			rm -f .bonus
 
-# Rebuild everything
-re: fclean all
+re:			fclean all
+
+.PHONY: 	all bonus clean fclean re
