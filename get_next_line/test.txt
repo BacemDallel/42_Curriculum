@@ -1,5 +1,6 @@
 Hi my name is
 Bacem
 Dallel
+gcc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c main.c -o gnl_test
 
 https://github.com/jdecorte-be/42-Get-next-line
