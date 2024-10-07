@@ -1,0 +1,5 @@
+Hi my name is
+Bacem
+Dallel
+
+https://github.com/jdecorte-be/42-Get-next-line
